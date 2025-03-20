@@ -69,7 +69,7 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?auto=format&fit=crop&q=80&w=800",
     technologies: ["React", "Framer Motion", "TailwindCSS"],
     category: "Web development",
-    link: "www.chamikadamith.me",
+    link: "https://github.com/DilshanDe/Portfolio",
   },
   {
     title: "Chat Application",
