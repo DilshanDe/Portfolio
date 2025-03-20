@@ -42,23 +42,23 @@ function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md  shadow-sm"
+      className="shadow-sm backdrop-blur-md fixed left-0 right-0 top-0 z-50"
       initial="hidden"
       animate="visible"
       variants={navVariants}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="lg:px-8 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex h-20 justify-between items-center">
           <motion.div className="flex-shrink-0" whileHover={{ scale: 1.05 }}>
             <a
               href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-red-600 bg-clip-text text-transparent"
+              className="bg-clip-text bg-gradient-to-r text-2xl text-transparent font-bold from-yellow-400 to-red-600"
             >
               CD
             </a>
           </motion.div>
 
-          <div className="hidden md:flex space-x-10 ml-14">
+          <div className="hidden md:flex ml-14 space-x-10">
             {[
               { label: "Home", to: "home" },
               { label: "Technologies", to: "technologies" },
@@ -68,7 +68,7 @@ function Navbar() {
             ].map((link) => (
               <motion.div
                 key={link.label}
-                className="text-gray-400 hover:text-red-400 transition-colors dark:text-gray-100 dark:hover:text-red-500 font-light hover:cursor-pointer"
+                className="text-gray-400 dark:hover:text-red-500 dark:text-gray-100 font-light hover:cursor-pointer hover:text-red-400 transition-colors"
                 variants={linkVariants}
                 whileHover="hover"
               >
@@ -85,11 +85,11 @@ function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden items-center md:flex space-x-6">
             {[
               {
                 icon: Linkedin,
-                href: "www.linkedin.com/in/dilshan-de-silva-7940142a9",
+                href: "https://www.linkedin.com/in/dilshan-de-silva-7940142a9",
                 label: "LinkedIn",
               },
               {
@@ -113,11 +113,11 @@ function Navbar() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-200 hover:text-red-400 transition-colors dark:text-gray-100 dark:hover:text-red-500"
+                className="text-gray-200 dark:hover:text-red-500 dark:text-gray-100 hover:text-red-400 transition-colors"
                 variants={iconVariants}
                 whileHover="hover"
               >
-                <item.icon className="w-6 h-6" />
+                <item.icon className="h-6 w-6" />
               </motion.a>
             ))}
           </div>
@@ -134,59 +134,61 @@ function Navbar() {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden bg-gradient-to-r from-red-950 via-gray-900 to-black backdrop-blur-lg border border-neutral-700 p-6 rounded-xl mt-2 shadow-xl">
-          <div className="flex flex-col  space-y-6 text-neutral-300">
+        <div className="bg-gradient-to-r border border-neutral-700 p-6 rounded-xl shadow-xl backdrop-blur-lg from-red-950 md:hidden mt-2 to-black via-gray-900">
+          <div className="flex flex-col text-neutral-300 space-y-6">
             <a
               href="#home"
-              className="hover:text-red-400 transition duration-300"
+              className="duration-300 hover:text-red-400 transition"
             >
               Home
             </a>
             <a
               href="#technologies"
-              className="hover:text-red-400 transition duration-300"
+              className="duration-300 hover:text-red-400 transition"
             >
               Technologies
             </a>
             <a
               href="#projects"
-              className="hover:text-red-400 transition duration-300"
+              className="duration-300 hover:text-red-400 transition"
             >
               Projects
             </a>
             <a
               href="#blog"
-              className="hover:text-red-400 transition duration-300"
+              className="duration-300 hover:text-red-400 transition"
             >
               Blog
             </a>
             <a
               href="#contacts"
-              className="hover:text-red-400 transition duration-300"
+              className="duration-300 hover:text-red-400 transition"
             >
               Contacts
             </a>
 
-            <div className=" flex items-center space-x-16">
+            <div className="flex items-center space-x-16">
               {[
                 {
                   icon: Linkedin,
-                  href: "https://www.linkedin.com/in/chamika-damith/",
+                  href: "https://www.linkedin.com/in/dilshan-de-silva-7940142a9",
+                  
                   label: "LinkedIn",
                 },
                 {
                   icon: Github,
-                  href: "https://github.com/chamika-damith",
+                  href: "https://github.com/DilshanDe",
                   label: "GitHub",
                 },
                 {
                   icon: Instagram,
-                  href: "https://www.instagram.com/chamika.damith71/",
+                  href: "https://www.instagram.com/dilshandesilwa/",
+                
                   label: "Instagram",
                 },
                 {
                   icon: Mail,
-                  href: "mailto:chamikadamith9@gmail.com",
+                  href: "mailto:dilshansilwa54@gmail.com",
                   label: "Email",
                 },
               ].map((item) => (
@@ -195,11 +197,11 @@ function Navbar() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-200 hover:text-red-400 transition-colors dark:text-gray-100 dark:hover:text-red-500"
+                  className="text-gray-200 dark:hover:text-red-500 dark:text-gray-100 hover:text-red-400 transition-colors"
                   variants={iconVariants}
                   whileHover="hover"
                 >
-                  <item.icon className="w-6 h-6" />
+                  <item.icon className="h-6 w-6" />
                 </motion.a>
               ))}
             </div>
