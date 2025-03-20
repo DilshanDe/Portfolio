@@ -1,7 +1,7 @@
 const { SitemapStream, streamToPromise } = require('sitemap');
 const fs = require('fs');
 
-const sitemap = new SitemapStream({ hostname: 'https://chamikadamith.me' });
+const sitemap = new SitemapStream({ hostname: 'https://dilshansilva.me' });
 
 streamToPromise(
   sitemap
