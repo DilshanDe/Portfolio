@@ -40,31 +40,31 @@ const fadeInLeftVariants = {
 
 function Hero() {
   return (
-    <div className="min-h-screen pt-20 " id='home'>
+    <div className="min-h-screen pt-20" id='home'>
       <motion.div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+        className="lg:px-8 max-w-7xl mx-auto px-4 py-20 sm:px-6"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col justify-between gap-12 items-center lg:flex-row">
           <motion.div className="lg:w-3/5 space-y-8" variants={itemVariants}>
             <motion.h1 
-              className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-red-600 via-pink-500 to-blue-400 bg-clip-text text-transparent"
+              className="bg-clip-text bg-gradient-to-r text-5xl text-transparent font-bold from-red-600 lg:text-6xl to-blue-400 via-pink-500"
               variants={fadeInLeftVariants} 
             >
               Dilshan De Silva
             </motion.h1>
             
             <motion.div 
-              className="text-2xl lg:text-3xl text-gray-700 dark:text-gray-200"
+              className="text-2xl text-gray-700 dark:text-gray-200 lg:text-3xl"
               variants={fadeInLeftVariants}
             >
               Full Stack Developer
             </motion.div>
 
             <motion.p 
-              className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl"
+              className="text-gray-600 text-lg dark:text-gray-400 leading-relaxed max-w-2xl"
               variants={itemVariants}
             >
                 {HERO_CONTENT}
@@ -74,12 +74,12 @@ function Hero() {
               <motion.a
                 href="/resume.pdf"
                 download
-                className="inline-flex items-center px-6 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white font-medium transition-colors duration-300 group"
+                className="bg-red-600 rounded-full text-white duration-300 font-medium group hover:bg-red-700 inline-flex items-center px-6 py-3 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-                Download 
+                <Download className="h-5 w-5 group-hover:animate-bounce mr-2" />
+                Download
               </motion.a>
             </motion.div>
           </motion.div>
@@ -89,16 +89,16 @@ function Hero() {
             variants={itemVariants}
           >
             <motion.div
-              className="relative w-full aspect-square max-w-md mx-auto"
+              className="w-full aspect-square max-w-md mx-auto relative"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-pink-500 rounded-3xl blur-xl opacity-20 animate-pulse"></div>
+              <div className="bg-gradient-to-r rounded-3xl absolute animate-pulse blur-xl from-red-600 inset-0 opacity-20 to-pink-500"></div>
               <img
                 src={profilePic}
                 alt="Profile"
                 loading="lazy"
-                className="relative rounded-3xl w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="h-full rounded-3xl w-full duration-500 grayscale hover:grayscale-0 object-cover relative transition-all"
               />
             </motion.div>
           </motion.div>
