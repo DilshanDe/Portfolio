@@ -79,7 +79,7 @@ function Hero() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-                Download Resume
+                Download 
               </motion.a>
             </motion.div>
           </motion.div>
