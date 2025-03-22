@@ -85,7 +85,7 @@ export const PROJECTS = [
     image: "https://i.postimg.cc/LsswwBdp/R-5.png",
     technologies: ["Flutter", "Dart", "Firebase"],
     category: "Applications",
-    link: "https://github.com/DilshanDe/baber-app"
+    link: "https://github.com/DilshanDe/Salon-Booking-App"
   },
   {
     title: "Travel Companion App",
