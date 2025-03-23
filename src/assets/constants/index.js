@@ -93,7 +93,7 @@ export const PROJECTS = [
     image: "https://i.postimg.cc/brC0Wb1Z/OIP-22.jpg",
     technologies: ["Flutter", "Dart", "Firebase"],
     category: "Applications",
-    link: ""
+    link: "https://github.com/DilshanDe/Travel-App"
   },
   {
     title: "Computer Service Management System Ui",
