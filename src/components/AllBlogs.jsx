@@ -15,7 +15,7 @@ export default function AllBlogs() {
       try {
         const response = await axios.get("https://api.rss2json.com/v1/api.json", {
           params: {
-            rss_url: "https://medium.com/feed/@chamikadamith9",
+            rss_url: "",
           },
         });
         const fetchedPosts = response.data.items;
