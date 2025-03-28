@@ -54,7 +54,7 @@ function Navbar() {
               href="/"
               className="bg-clip-text bg-gradient-to-r text-2xl text-transparent font-bold from-yellow-400 to-red-600"
             >
-              CD
+              DD
             </a>
           </motion.div>
 
