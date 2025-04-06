@@ -96,6 +96,14 @@ export const PROJECTS = [
     link: "https://github.com/DilshanDe/Travel-App"
   },
   {
+    title: "Flutter Counter App (BLoC)",
+    description: "A basic counter app built with Flutter using BLoC for state management, showcasing clean architecture and reactive state handling.",
+    image: "https://i.postimg.cc/2y8VVg1h/OIP.jpg",
+    technologies: ["Flutter", "Dart", "BLoC"],
+    category: "Applications",
+    link: "https://github.com/DilshanDe/Counter-App"
+  },
+  {
     title: "Computer Service Management System Ui",
     description: "Computer service Managment System ui using a Figma",
     image: "https://i.postimg.cc/gJvzw2gd/photo-2025-03-14-09-51-30.jpg",
