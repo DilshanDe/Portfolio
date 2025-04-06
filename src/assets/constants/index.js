@@ -88,6 +88,14 @@ export const PROJECTS = [
     link: "https://github.com/DilshanDe/Salon-Booking-App"
   },
   {
+    title: "News App",
+    description: "A real-time news app built with Flutter and NewsAPI. Users can browse top headlines, filter by category, and search for specific topics. Features a clean UI, responsive design, and smooth API integration for live news updates..",
+    image: "https://i.postimg.cc/wxrDJgYw/OIP-1.jpg",
+    technologies: ["Flutter", "Dart", "NewsAPi"],
+    category: "Applications",
+    link: "https://github.com/DilshanDe/News-App"
+  },
+  {
     title: "Travel Companion App",
     description: "Travel Companion App is a Flutter & Firebase app for trip planning, hotel booking, and destination exploration. It features real-time tracking, authentication, and cloud storage, ensuring a seamless travel experience.",
     image: "https://i.postimg.cc/brC0Wb1Z/OIP-22.jpg",
