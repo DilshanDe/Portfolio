@@ -112,6 +112,14 @@ export const PROJECTS = [
     link: "https://github.com/DilshanDe/Counter-App"
   },
   {
+    title: "Flutter Package Delivery App(Ongoing)",
+    description: "The app includes user authentication, package tracking, payment processing, and an admin panel. Real-time updates and UI design tips were key elements in creating a user-friendly experience. The app features GPS integration for location tracking and ResourPay for payment processing. I implemented state management using inherited widgets and classes to ensure clean and maintainable code.",
+    image: "https://i.postimg.cc/PxCcjMPv/fast-delivery.png",
+    technologies: ["Flutter", "Dart","Firebase"],
+    category: "Applications",
+    link: "https://github.com/DilshanDe/Package-Delivery-App"
+  },
+  {
     title: "Computer Service Management System Ui",
     description: "Computer service Managment System ui using a Figma",
     image: "https://i.postimg.cc/gJvzw2gd/photo-2025-03-14-09-51-30.jpg",
