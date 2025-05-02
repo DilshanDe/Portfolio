@@ -120,6 +120,14 @@ export const PROJECTS = [
     link: "https://github.com/DilshanDe/Package-Delivery-App"
   },
   {
+    title: "Simple Login Screen Ui",
+    description: "Simple login Screen Ui Using Flutter",
+    image: "https://i.postimg.cc/mkK3mY2R/OIP-4.jpg",
+    technologies: ["Flutter", "Dart"],
+    category: "Applications",
+    link: "https://github.com/DilshanDe/Login-Screen-App-Ui"
+  },
+  {
     title: "Computer Service Management System Ui",
     description: "Computer service Managment System ui using a Figma",
     image: "https://i.postimg.cc/gJvzw2gd/photo-2025-03-14-09-51-30.jpg",
