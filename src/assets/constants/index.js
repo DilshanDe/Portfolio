@@ -46,6 +46,14 @@ export const PROJECTS = [
     category: "Web development",
     link: "https://github.com/DilshanDe/Computer-Service-Center-managment-System"
   },
+  {
+    title: "Travel Companion App (Ongoing)",
+    description: "Travel Companion App is a Flutter & Firebase app for trip planning, hotel booking, and destination exploration. It features real-time tracking, authentication, and cloud storage, ensuring a seamless travel experience.",
+    image: "https://i.postimg.cc/brC0Wb1Z/OIP-22.jpg",
+    technologies: ["Flutter", "Dart", "Firebase"],
+    category: "Applications",
+    link: "https://github.com/DilshanDe/Travel-App"
+  },
 
   {
     title: "FullStack Social Media App",
@@ -95,14 +103,7 @@ export const PROJECTS = [
     category: "Applications",
     link: "https://github.com/DilshanDe/News-App"
   },
-  {
-    title: "Travel Companion App (Ongoing)",
-    description: "Travel Companion App is a Flutter & Firebase app for trip planning, hotel booking, and destination exploration. It features real-time tracking, authentication, and cloud storage, ensuring a seamless travel experience.",
-    image: "https://i.postimg.cc/brC0Wb1Z/OIP-22.jpg",
-    technologies: ["Flutter", "Dart", "Firebase"],
-    category: "Applications",
-    link: "https://github.com/DilshanDe/Travel-App"
-  },
+  
   {
     title: "Flutter Counter App (BLoC)",
     description: "A basic counter app built with Flutter using BLoC for state management, showcasing clean architecture and reactive state handling.",
