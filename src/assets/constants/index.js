@@ -47,7 +47,7 @@ export const PROJECTS = [
     link: "https://github.com/DilshanDe/Computer-Service-Center-managment-System"
   },
   {
-    title: "Travel Companion App (Ongoing)",
+    title: "Travel Companion App",
     description: "Travel Companion App is a Flutter & Firebase app for trip planning, hotel booking, and destination exploration. It features real-time tracking, authentication, and cloud storage, ensuring a seamless travel experience.",
     image: "https://i.postimg.cc/brC0Wb1Z/OIP-22.jpg",
     technologies: ["Flutter", "Dart", "Firebase"],
