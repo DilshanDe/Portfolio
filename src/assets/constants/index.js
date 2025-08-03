@@ -167,6 +167,10 @@ export const technologies = [
     description: "Creating seamless web experiences with cutting-edge tools",
     delay: 0.3
   },
-  
-
+  {
+    icon: Brain,
+    name: "AI/ML",
+    description: "Developing intelligent systems with machine learning and artificial intelligence",
+    delay: 0.4
+  }
 ];
