@@ -80,12 +80,12 @@ export default function ContactForm() {
   };
 
   return (
-    <div id="contacts" className="relative min-h-screen p-4 flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950">
+    <div id="contacts" className="relative min-h-screen p-4 flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-950 via-gray-900 to-red-950">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-violet-500/5 to-fuchsia-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-red-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-red-500/5 to-pink-500/5 rounded-full blur-3xl" />
       </div>
 
       <motion.div
@@ -115,8 +115,8 @@ export default function ContactForm() {
               variants={itemVariants}
               className="flex items-center gap-3 mb-6"
             >
-              <Sparkles className="h-8 w-8 text-purple-400" />
-              <h1 className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-pink-300">
+              <Sparkles className="h-8 w-8 text-red-400" />
+              <h1 className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white via-red-200 to-pink-300">
                 Let's Connect
               </h1>
             </motion.div>
@@ -147,16 +147,16 @@ export default function ContactForm() {
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, x: 10 }}
                 whileTap={{ scale: 0.98 }}
-                className="group flex items-center space-x-4 p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300"
+                className="group flex items-center space-x-4 p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-red-500/30 transition-all duration-300"
               >
-                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
-                  <item.icon className="h-6 w-6 text-purple-400 group-hover:text-purple-300" />
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-red-500/20 to-pink-500/20 group-hover:from-red-500/30 group-hover:to-pink-500/30 transition-all duration-300">
+                  <item.icon className="h-6 w-6 text-red-400 group-hover:text-red-300" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400 group-hover:text-gray-300">{item.label}</p>
-                  <p className="text-lg font-medium text-white group-hover:text-purple-200">{item.value}</p>
+                  <p className="text-lg font-medium text-white group-hover:text-red-200">{item.value}</p>
                 </div>
-                <ArrowRight className="h-5 w-5 text-gray-500 group-hover:text-purple-400 ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                <ArrowRight className="h-5 w-5 text-gray-500 group-hover:text-red-400 ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </motion.a>
             ))}
           </motion.div>
@@ -165,7 +165,7 @@ export default function ContactForm() {
         {/* Right Side - Contact Form */}
         <motion.div variants={itemVariants} className="relative group">
           {/* Animated Border */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-3xl blur-sm opacity-20 group-hover:opacity-30 transition duration-1000 animate-gradient-xy" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-pink-600 to-red-600 rounded-3xl blur-sm opacity-20 group-hover:opacity-30 transition duration-1000 animate-gradient-xy" />
           
           <div className="relative p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl">
             <div className="flex items-center gap-3 mb-8">
