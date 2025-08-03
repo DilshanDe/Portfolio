@@ -28,11 +28,6 @@ const techStacks = {
     { icon: DiMysql, name: "Mysql", color: "from-pink-400 to-purple-500" },
     
   ],
-  "System Architecture": [
-    { icon: FaDocker, name: "Docker", color: "from-blue-400 to-green-500" },
-    { icon: SiKubernetes, name: "Kubernetes", color: "from-teal-400 to-blue-500" },
-    { icon: FaAws, name: "AWS", color: "from-yellow-400 to-orange-500" }
-  ],
   "AI/ML": [
   { icon: SiTensorflow, name: "TensorFlow", color: "from-orange-400 to-yellow-500" },
   { icon: SiPytorch, name: "PyTorch", color: "from-red-400 to-orange-500" },
@@ -45,6 +40,12 @@ const techStacks = {
   { icon: SiAnaconda, name: "Anaconda", color: "from-green-400 to-emerald-500" },
   { icon: SiGooglecloud, name: "Google AI", color: "from-blue-500 to-green-500" }
 ],
+  "System Architecture": [
+    { icon: FaDocker, name: "Docker", color: "from-blue-400 to-green-500" },
+    { icon: SiKubernetes, name: "Kubernetes", color: "from-teal-400 to-blue-500" },
+    { icon: FaAws, name: "AWS", color: "from-yellow-400 to-orange-500" }
+  ],
+  
   "Cloud Computing": [
     { icon: FaAws, name: "AWS", color: "from-yellow-400 to-orange-500" },
     { icon: IoLogoVercel, name: "Vercel", color: "from-black to-gray-500" }
