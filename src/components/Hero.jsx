@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Download, Github, Linkedin, Mail, ExternalLink, Sparkles } from 'lucide-react';
+import { Download, Mail, Sparkles } from 'lucide-react';
 import profilePic from '../assets/profilePicnew.webp';
 import { HERO_CONTENT } from '../assets/constants';
 
@@ -54,9 +54,54 @@ const imageVariants = {
 
 function Hero() {
   const [isDownloading, setIsDownloading] = useState(false);
+  const [nameText, setNameText] = useState('');
+  const [titleText, setTitleText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const [currentPhase, setCurrentPhase] = useState('name'); // 'name', 'title', 'complete'
+  
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.5]);
+
+  const fullName = "Dilshan De Silva";
+  const fullTitle = "Full Stack Developer";
+
+  useEffect(() => {
+    let timeoutId;
+
+    if (currentPhase === 'name') {
+      if (nameText.length < fullName.length) {
+        timeoutId = setTimeout(() => {
+          setNameText(fullName.slice(0, nameText.length + 1));
+        }, 100); // Speed of typing
+      } else {
+        // Name complete, start title after a pause
+        timeoutId = setTimeout(() => {
+          setCurrentPhase('title');
+        }, 500);
+      }
+    } else if (currentPhase === 'title') {
+      if (titleText.length < fullTitle.length) {
+        timeoutId = setTimeout(() => {
+          setTitleText(fullTitle.slice(0, titleText.length + 1));
+        }, 80); // Slightly faster for title
+      } else {
+        // Both complete
+        setCurrentPhase('complete');
+      }
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [nameText, titleText, currentPhase, fullName, fullTitle]);
+
+  // Cursor blinking effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 530); // Cursor blink speed
+
+    return () => clearInterval(cursorInterval);
+  }, []);
 
   // Google Drive download link - replace with your actual Google Drive file ID
   const handleDownload = async () => {
@@ -115,29 +160,28 @@ function Hero() {
               <span className="text-lg font-medium">Hello, I'm</span>
             </motion.div>
 
-            {/* Name with enhanced gradient */}
+            {/* Name with typewriter effect */}
             <motion.h1
-              className="bg-clip-text bg-gradient-to-r text-5xl text-transparent font-black from-red-600 lg:text-7xl to-blue-400 via-pink-500 leading-tight"
+              className="bg-clip-text bg-gradient-to-r text-5xl text-transparent font-black from-red-600 lg:text-7xl to-blue-400 via-pink-500 leading-tight min-h-[1.2em]"
               variants={fadeInLeftVariants}
             >
-              Dilshan De Silva
+              {nameText}
+              {currentPhase === 'name' && showCursor && (
+                <span className="text-red-500 ml-1 animate-pulse">|</span>
+              )}
             </motion.h1>
             
             {/* Enhanced title with typing effect */}
             <motion.div
-              className="text-2xl text-gray-700 dark:text-gray-200 lg:text-4xl font-semibold"
+              className="text-2xl text-gray-700 dark:text-gray-200 lg:text-4xl font-semibold min-h-[1.2em]"
               variants={fadeInLeftVariants}
             >
               <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
-                Full Stack Developer
+                {titleText}
               </span>
-              <motion.span
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
-                className="text-red-500 ml-1"
-              >
-                |
-              </motion.span>
+              {(currentPhase === 'title' || (currentPhase === 'complete' && showCursor)) && (
+                <span className="text-red-500 ml-1">|</span>
+              )}
             </motion.div>
 
             {/* Description with better typography */}
@@ -186,31 +230,7 @@ function Hero() {
               </motion.a>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div 
-              variants={itemVariants}
-              className="flex items-center gap-4 pt-4"
-            >
-              <span className="text-gray-500 dark:text-gray-400 font-medium">Follow me:</span>
-              <div className="flex gap-3">
-                {[
-                  { icon: Github, href: "#", label: "GitHub" },
-                  { icon: Linkedin, href: "#", label: "LinkedIn" },
-                  { icon: ExternalLink, href: "#", label: "Portfolio" },
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-red-600 hover:text-white transition-all duration-300"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label={social.label}
-                  >
-                    <social.icon className="h-5 w-5" />
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
+
           </motion.div>
 
           {/* Enhanced Image Section */}
@@ -241,17 +261,6 @@ function Hero() {
                 className="h-full rounded-3xl w-full duration-700 grayscale hover:grayscale-0 object-cover relative z-10 transition-all group-hover:shadow-2xl"
                 whileHover={{ rotateY: 2 }}
               />
-              
-              {/* Floating Badge */}
-              <motion.div
-                className="absolute -bottom-4 -right-4 bg-gradient-to-r from-red-600 to-pink-600 text-white px-4 py-2 rounded-full font-semibold shadow-lg"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.5, duration: 0.5 }}
-                whileHover={{ scale: 1.1 }}
-              >
-                Available for Work
-              </motion.div>
             </motion.div>
           </motion.div>
         </div>
