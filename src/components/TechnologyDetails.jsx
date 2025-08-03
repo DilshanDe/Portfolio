@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaJava, FaNode, FaHtml5, FaCss3, FaPython, FaDocker, FaAws } from "react-icons/fa";
 import { RiReactjsLine } from "react-icons/ri";
-import { SiMongodb, SiTypescript, SiKubernetes, SiTensorflow, SiPytorch, SiFirebase, SiDart } from "react-icons/si";
+import { SiMongodb, SiTypescript, SiKubernetes, SiTensorflow, SiPytorch, SiFirebase, SiDart, SiKeras, SiScikitlearn, SiJupyter, SiPandas, SiNumpy, SiAnaconda, SiGooglecloud } from "react-icons/si";
 import {  TbApi } from "react-icons/tb";
 import { DiMysql } from "react-icons/di";
 import { AiFillOpenAI } from "react-icons/ai";
@@ -33,11 +33,18 @@ const techStacks = {
     { icon: SiKubernetes, name: "Kubernetes", color: "from-teal-400 to-blue-500" },
     { icon: FaAws, name: "AWS", color: "from-yellow-400 to-orange-500" }
   ],
-  "AI Integration": [
-    { icon: SiTensorflow, name: "TensorFlow", color: "from-orange-400 to-yellow-500" },
-    { icon: SiPytorch, name: "PyTorch", color: "from-red-400 to-orange-500" },
-    { icon: AiFillOpenAI, name: "OpenAI", color: "from-blue-400 to-indigo-500" }
-  ],
+  "AI/ML": [
+  { icon: SiTensorflow, name: "TensorFlow", color: "from-orange-400 to-yellow-500" },
+  { icon: SiPytorch, name: "PyTorch", color: "from-red-400 to-orange-500" },
+  { icon: AiFillOpenAI, name: "OpenAI", color: "from-blue-400 to-indigo-500" },
+  { icon: SiScikitlearn, name: "Scikit-learn", color: "from-blue-500 to-cyan-500" },
+  { icon: SiKeras, name: "Keras", color: "from-red-500 to-pink-500" },
+  { icon: SiJupyter, name: "Jupyter", color: "from-orange-500 to-amber-500" },
+  { icon: SiPandas, name: "Pandas", color: "from-blue-600 to-purple-600" },
+  { icon: SiNumpy, name: "NumPy", color: "from-blue-400 to-blue-600" },
+  { icon: SiAnaconda, name: "Anaconda", color: "from-green-400 to-emerald-500" },
+  { icon: SiGooglecloud, name: "Google AI", color: "from-blue-500 to-green-500" }
+],
   "Cloud Computing": [
     { icon: FaAws, name: "AWS", color: "from-yellow-400 to-orange-500" },
     { icon: IoLogoVercel, name: "Vercel", color: "from-black to-gray-500" }
