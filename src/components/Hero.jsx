@@ -240,7 +240,7 @@ function Hero() {
           >
             <motion.div
               className="w-full aspect-square max-w-md mx-auto relative group"
-              whileHover={{ scale: 1.05, rotateY: 5 }}
+              whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.3 }}
               style={{ transformStyle: "preserve-3d" }}
             >
@@ -258,8 +258,7 @@ function Hero() {
                 src={profilePic}
                 alt="Dilshan De Silva - Full Stack Developer"
                 loading="lazy"
-                className="h-full rounded-3xl w-full duration-700 grayscale hover:grayscale-0 object-cover relative z-10 transition-all group-hover:shadow-2xl"
-                whileHover={{ rotateY: 2 }}
+                className="h-full rounded-3xl w-full duration-700 object-cover relative z-10 transition-all group-hover:shadow-2xl"
               />
             </motion.div>
           </motion.div>
