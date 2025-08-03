@@ -1,21 +1,23 @@
 import { motion } from 'framer-motion';
-import { FaJava, FaNode, FaHtml5, FaCss3, FaPython, FaDocker, FaAws } from "react-icons/fa";
-import { RiReactjsLine } from "react-icons/ri";
-import { SiMongodb, SiTypescript, SiKubernetes, SiTensorflow, SiPytorch, SiFirebase, SiDart, SiKeras, SiScikitlearn, SiJupyter, SiPandas, SiNumpy, SiAnaconda, SiGooglecloud } from "react-icons/si";
-import {  TbApi } from "react-icons/tb";
+import { FaJava, FaNode, FaPython, FaDocker, FaAws } from "react-icons/fa";
+
+import { SiMongodb, SiKubernetes, SiTensorflow, SiPytorch, SiFirebase, SiDart, SiKeras, SiScikitlearn, SiJupyter, SiPandas, SiNumpy, SiAnaconda, SiGooglecloud, SiReact, SiHtml5, SiTailwindcss, SiFlutter, SiJavascript } from "react-icons/si";
+
 import { DiMysql } from "react-icons/di";
 import { AiFillOpenAI } from "react-icons/ai";
 import { IoLogoVercel } from "react-icons/io5";
-import { FaReact } from "react-icons/fa";
+
 
 const techStacks = {
   "Frontend Development": [
-    { icon: RiReactjsLine, name: "React", color: "from-green-400 to-blue-500" },
-    { icon: FaReact, name: "React Native", color: "from-blue-400 to-cyan-500" },
-    { icon: FaHtml5, name: "HTML5", color: "from-red-400 to-orange-500" },
-    { icon: SiDart, name: "Dart", color: "from-blue-400 to-orange-500" },
-    { icon: FaCss3, name: "CSS3", color: "from-blue-400 to-purple-500" }
-  ],
+  { icon: SiReact, name: "React", color: "from-cyan-400 to-blue-500" },
+  { icon: SiReact, name: "React Native", color: "from-blue-400 to-cyan-500" },
+  { icon: SiHtml5, name: "HTML5", color: "from-orange-500 to-red-500" },
+  { icon: SiDart, name: "Dart", color: "from-blue-500 to-teal-400" },
+  { icon: SiJavascript, name: "JavaScript", color: "from-yellow-400 to-orange-500" },
+  { icon: SiTailwindcss, name: "Tailwind CSS", color: "from-cyan-400 to-blue-500" },
+  { icon: SiFlutter, name: "Flutter", color: "from-blue-400 to-cyan-300" }
+],
   "Backend Systems": [
     { icon: FaNode, name: "Node.js", color: "from-green-500 to-gray-500" },
     { icon: SiMongodb, name: "MongoDB", color: "from-teal-400 to-blue-500" },
