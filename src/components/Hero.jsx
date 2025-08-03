@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Download, Github, Linkedin, Mail, ExternalLink, Sparkles } from 'lucide-react';
 import profilePic from '../assets/profilePicnew.webp';
 import { HERO_CONTENT } from '../assets/constants';
 
@@ -9,28 +9,42 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.4,  // Slightly longer stagger for a more graceful reveal
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
     }
   }
 };
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 1,  // Increased duration for a smoother animation
-      ease: "easeOut",
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94], // Custom easing
     }
   }
 };
 
 const fadeInLeftVariants = {
-  hidden: { x: -20, opacity: 0 },
+  hidden: { x: -50, opacity: 0 },
   visible: {
     x: 0,
     opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    }
+  }
+};
+
+const imageVariants = {
+  hidden: { scale: 0.8, opacity: 0, rotateY: 20 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    rotateY: 0,
     transition: {
       duration: 1,
       ease: "easeOut",
@@ -39,67 +53,205 @@ const fadeInLeftVariants = {
 };
 
 function Hero() {
+  const [isDownloading, setIsDownloading] = useState(false);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.5]);
+
+  // Google Drive download link - replace with your actual Google Drive file ID
+  const handleDownload = async () => {
+    setIsDownloading(true);
+    
+    // Your Google Drive CV file ID
+    const googleDriveFileId = '14ypoha_i2Mpi95mbHHHlGg9cAQdWrIxQ';
+    const downloadUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
+    
+    try {
+      // Create a temporary link and trigger download
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = 'Dilshan_De_Silva_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback: open in new tab
+      window.open(downloadUrl, '_blank');
+    } finally {
+      setTimeout(() => setIsDownloading(false), 2000);
+    }
+  };
+
   return (
-    <div className="min-h-screen pt-20" id='home'>
+    <div className="min-h-screen pt-20 relative overflow-hidden" id='home'>
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          style={{ y }}
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-red-600/10 to-pink-500/10 rounded-full blur-3xl"
+        />
+        <motion.div 
+          style={{ y: useTransform(scrollY, [0, 500], [0, -100]) }}
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-red-600/10 rounded-full blur-3xl"
+        />
+      </div>
+
       <motion.div
-        className="lg:px-8 max-w-7xl mx-auto px-4 py-20 sm:px-6"
+        style={{ opacity }}
+        className="lg:px-8 max-w-7xl mx-auto px-4 py-20 sm:px-6 relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col justify-between gap-12 items-center lg:flex-row">
+        <div className="flex flex-col justify-between gap-16 items-center lg:flex-row">
           <motion.div className="lg:w-3/5 space-y-8" variants={itemVariants}>
-            <motion.h1 
-              className="bg-clip-text bg-gradient-to-r text-5xl text-transparent font-bold from-red-600 lg:text-6xl to-blue-400 via-pink-500"
-              variants={fadeInLeftVariants} 
+            {/* Greeting */}
+            <motion.div
+              variants={fadeInLeftVariants}
+              className="flex items-center gap-2 text-gray-600 dark:text-gray-400"
+            >
+              <Sparkles className="h-5 w-5 text-red-500" />
+              <span className="text-lg font-medium">Hello, I'm</span>
+            </motion.div>
+
+            {/* Name with enhanced gradient */}
+            <motion.h1
+              className="bg-clip-text bg-gradient-to-r text-5xl text-transparent font-black from-red-600 lg:text-7xl to-blue-400 via-pink-500 leading-tight"
+              variants={fadeInLeftVariants}
             >
               Dilshan De Silva
             </motion.h1>
             
-            <motion.div 
-              className="text-2xl text-gray-700 dark:text-gray-200 lg:text-3xl"
+            {/* Enhanced title with typing effect */}
+            <motion.div
+              className="text-2xl text-gray-700 dark:text-gray-200 lg:text-4xl font-semibold"
               variants={fadeInLeftVariants}
             >
-              Full Stack Developer
+              <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+                Full Stack Developer
+              </span>
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+                className="text-red-500 ml-1"
+              >
+                |
+              </motion.span>
             </motion.div>
 
-            <motion.p 
-              className="text-gray-600 text-lg dark:text-gray-400 leading-relaxed max-w-2xl"
+            {/* Description with better typography */}
+            <motion.p
+              className="text-gray-600 text-lg dark:text-gray-400 leading-relaxed max-w-2xl lg:text-xl"
               variants={itemVariants}
             >
-                {HERO_CONTENT}
-            </motion.p> 
+              {HERO_CONTENT}
+            </motion.p>
 
-            <motion.div variants={itemVariants}>
-              <motion.a
-                href="/resume.pdf"
-                download
-                className="bg-red-600 rounded-full text-white duration-300 font-medium group hover:bg-red-700 inline-flex items-center px-6 py-3 transition-colors"
+            {/* Enhanced CTA Section */}
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 pt-4">
+              {/* Download Button */}
+              <motion.button
+                onClick={handleDownload}
+                disabled={isDownloading}
+                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-full text-white duration-300 font-semibold group inline-flex items-center justify-center px-8 py-4 transition-all transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed relative overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Download className="h-5 w-5 group-hover:animate-bounce mr-2" />
-                Download
+                <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative flex items-center gap-3">
+                  {isDownloading ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>Downloading...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Download className="h-5 w-5 group-hover:animate-bounce" />
+                      <span>Download CV</span>
+                    </>
+                  )}
+                </div>
+              </motion.button>
+
+              {/* Contact Button */}
+              <motion.a
+                href="#contacts"
+                className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white rounded-full duration-300 font-semibold group inline-flex items-center justify-center px-8 py-4 transition-all transform hover:scale-105"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Mail className="h-5 w-5 mr-3 group-hover:animate-pulse" />
+                Get In Touch
               </motion.a>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex items-center gap-4 pt-4"
+            >
+              <span className="text-gray-500 dark:text-gray-400 font-medium">Follow me:</span>
+              <div className="flex gap-3">
+                {[
+                  { icon: Github, href: "#", label: "GitHub" },
+                  { icon: Linkedin, href: "#", label: "LinkedIn" },
+                  { icon: ExternalLink, href: "#", label: "Portfolio" },
+                ].map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-red-600 hover:text-white transition-all duration-300"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileTap={{ scale: 0.9 }}
+                    aria-label={social.label}
+                  >
+                    <social.icon className="h-5 w-5" />
+                  </motion.a>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
 
-          <motion.div 
+          {/* Enhanced Image Section */}
+          <motion.div
             className="lg:w-1/2"
-            variants={itemVariants}
+            variants={imageVariants}
           >
             <motion.div
-              className="w-full aspect-square max-w-md mx-auto relative"
-              whileHover={{ scale: 1.02 }}
+              className="w-full aspect-square max-w-md mx-auto relative group"
+              whileHover={{ scale: 1.05, rotateY: 5 }}
               transition={{ duration: 0.3 }}
+              style={{ transformStyle: "preserve-3d" }}
             >
-              <div className="bg-gradient-to-r rounded-3xl absolute animate-pulse blur-xl from-red-600 inset-0 opacity-20 to-pink-500"></div>
-              <img
+              {/* Multiple Background Effects */}
+              <div className="bg-gradient-to-r rounded-3xl absolute animate-pulse blur-xl from-red-600 inset-2 opacity-20 to-pink-500 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-l rounded-3xl absolute blur-2xl from-blue-400 inset-4 opacity-10 to-red-600 group-hover:opacity-20 transition-opacity duration-500"></div>
+              
+              {/* Border Animation */}
+              <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-red-600 via-pink-500 to-blue-400 p-[2px] group-hover:animate-pulse">
+                <div className="rounded-3xl bg-white dark:bg-gray-900 h-full w-full"></div>
+              </div>
+              
+              {/* Main Image */}
+              <motion.img
                 src={profilePic}
-                alt="Profile"
+                alt="Dilshan De Silva - Full Stack Developer"
                 loading="lazy"
-                className="h-full rounded-3xl w-full duration-500 grayscale hover:grayscale-0 object-cover relative transition-all"
+                className="h-full rounded-3xl w-full duration-700 grayscale hover:grayscale-0 object-cover relative z-10 transition-all group-hover:shadow-2xl"
+                whileHover={{ rotateY: 2 }}
               />
+              
+              {/* Floating Badge */}
+              <motion.div
+                className="absolute -bottom-4 -right-4 bg-gradient-to-r from-red-600 to-pink-600 text-white px-4 py-2 rounded-full font-semibold shadow-lg"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.5, duration: 0.5 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                Available for Work
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
