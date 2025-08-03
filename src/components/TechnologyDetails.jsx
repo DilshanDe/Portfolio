@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaJava, FaNode, FaPython, FaDocker, FaAws } from "react-icons/fa";
 
-import { SiMongodb, SiKubernetes, SiTensorflow, SiPytorch, SiFirebase, SiDart, SiKeras, SiScikitlearn, SiJupyter, SiPandas, SiNumpy, SiAnaconda, SiGooglecloud, SiReact, SiHtml5, SiTailwindcss, SiFlutter, SiJavascript } from "react-icons/si";
+import { SiMongodb, SiKubernetes, SiTensorflow, SiPytorch, SiFirebase, SiDart, SiKeras, SiScikitlearn, SiJupyter, SiPandas, SiNumpy, SiAnaconda, SiGooglecloud, SiReact, SiHtml5, SiTailwindcss, SiFlutter, SiJavascript, SiSupabase, SiExpress } from "react-icons/si";
 
 import { DiMysql } from "react-icons/di";
 import { AiFillOpenAI } from "react-icons/ai";
@@ -23,11 +23,15 @@ const techStacks = {
     { icon: SiMongodb, name: "MongoDB", color: "from-teal-400 to-blue-500" },
     { icon: FaPython, name: "Python", color: "from-yellow-400 to-green-500" },
     { icon: FaJava, name: "Java", color: "from-orange-400 to-red-500" },
-    { icon: SiFirebase, name: "Firebase", color: "from-yellow-400 to-orange-500" }
+    { icon: SiFirebase, name: "Firebase", color: "from-yellow-400 to-orange-500" },
+    { icon: SiExpress, name: "Express.js", color: "from-gray-700 to-gray-900" },
   ],
   "Web Technologies": [
     
-    { icon: DiMysql, name: "Mysql", color: "from-pink-400 to-purple-500" },
+    { icon: DiMysql, name: "MySQL", color: "from-pink-400 to-purple-500" },
+    { icon: SiMongodb, name: "MongoDB", color: "from-green-400 to-emerald-600" },
+    { icon: SiFirebase, name: "Firebase", color: "from-yellow-400 to-orange-500" },
+    { icon: SiSupabase, name: "Supabase", color: "from-green-400 to-teal-500" },
     
   ],
   "AI/ML": [
