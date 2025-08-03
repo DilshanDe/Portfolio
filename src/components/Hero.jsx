@@ -57,14 +57,22 @@ function Hero() {
   const [nameText, setNameText] = useState('');
   const [titleText, setTitleText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [currentPhase, setCurrentPhase] = useState('name'); // 'name', 'title', 'complete'
+  const [currentPhase, setCurrentPhase] = useState('name'); // 'name', 'title', 'erasing'
   
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.5]);
 
   const fullName = "Dilshan De Silva";
-  const fullTitle = "Full Stack Developer";
+  const titles = [
+    "Full Stack Developer",
+    "Mobile App Developer", 
+    "Software Engineer",
+    "Web Developer"
+  ];
+  
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const fullTitle = titles[currentTitleIndex];
 
   useEffect(() => {
     let timeoutId;
@@ -86,13 +94,25 @@ function Hero() {
           setTitleText(fullTitle.slice(0, titleText.length + 1));
         }, 80); // Slightly faster for title
       } else {
-        // Both complete
-        setCurrentPhase('complete');
+        // Title complete, wait then start erasing
+        timeoutId = setTimeout(() => {
+          setCurrentPhase('erasing');
+        }, 2000); // Wait 2 seconds before erasing
+      }
+    } else if (currentPhase === 'erasing') {
+      if (titleText.length > 0) {
+        timeoutId = setTimeout(() => {
+          setTitleText(titleText.slice(0, -1));
+        }, 50); // Faster erasing
+      } else {
+        // Move to next title
+        setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+        setCurrentPhase('title');
       }
     }
 
     return () => clearTimeout(timeoutId);
-  }, [nameText, titleText, currentPhase, fullName, fullTitle]);
+  }, [nameText, titleText, currentPhase, fullName, fullTitle, titles.length]);
 
   // Cursor blinking effect
   useEffect(() => {
@@ -179,7 +199,7 @@ function Hero() {
               <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
                 {titleText}
               </span>
-              {(currentPhase === 'title' || (currentPhase === 'complete' && showCursor)) && (
+              {(currentPhase === 'title' || currentPhase === 'erasing' || showCursor) && (
                 <span className="text-red-500 ml-1">|</span>
               )}
             </motion.div>
